@@ -1,0 +1,132 @@
+<div class="wrapper d-flex align-items-stretch">
+  <nav id="sidebar"  [ngClass]="{'active': isSidebarCollapsed}">
+    <div class="p-4 pt-5">
+      <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(http://localhost:5160/Uploads/Suckhoehangngay/SNAG-0012.png/image.png);"></a>
+    
+        <ul class="list-unstyled components mb-5">
+          <li routerLinkActive="active">
+            <a routerLink="/trangchu">Trang chủ</a>
+          </li> 
+          <li routerLinkActive="active">
+            <a routerLink="/qlnh">Quản lí nhập học</a>
+          </li>
+          <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" (click)="isSubMenuCollapsed = !isSubMenuCollapsed">Quản lí sơ yếu lý lịch</a>
+            <ul [ngClass]="{'collapse': isSubMenuCollapsed, 'show': !isSubMenuCollapsed}" class="list-unstyled" id="homeSubmenu">
+              <li routerLinkActive="active">
+                <a routerLink="/qlsylilich/qlihocvien">Thông tin học viên</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/qlsylilich/qligiaovien">Thông tin giáo viên</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/qlsylilich/qligiaovien/loai-giaovien/ds-loaigiaovien">Loại giáo viên</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/qlsylilich">Thông tin phụ huynh</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#helloSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lí sức khỏe học viên</a>
+            <ul class="collapse list-unstyled" id="helloSubmenu">
+              <li routerLinkActive="active">
+                <a routerLink="/qlsuckhoe/skdinhki">Sức khỏe định kì</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/qlsuckhoe/sktrongtuan">Sức khỏe trong tuần</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#lopSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lí lớp học</a>
+            <ul class="collapse list-unstyled" id="lopSubmenu">
+              <li routerLinkActive="active">
+                <a routerLink="/qlylop/lop">Danh sách lớp</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/qlylop/loailop">Danh sách loại lớp</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/qlylop">Thời khóa biểu</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/qlylop/tk-bieu/tiethoc">Danh sách tiết học</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/qlylop/sapxeploptheonam">Sắp xếp lớp (Theo năm)</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#ThuchiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lí thu chi</a>
+            <ul class="collapse list-unstyled" id="ThuchiSubmenu">
+              <li>
+                <a href="/ql-thuchi/ql-tienhoc/qlhoatdong">Đăng kí hoạt động</a>
+              </li>
+              <li>
+                <a href="/ql-thuchi/ql-tienhoc/ql-phieudiemdanh">Danh sách điểm danh</a>
+              </li>
+              <li>
+                <a href="/ql-thuchi/ql-tienhoc/ql-chiphiphaithu/ds-chiphiphaithu">Chi phí phải thu</a>
+              </li>
+              <li>
+                <a href="/ql-thuchi/ql-tienhoc/ds-tienhoc">Biên lai</a>
+              </li>
+              <li>
+                <a href="/ql-thuchi/thongke">Thống kê</a>
+              </li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="#thucdonSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lí bếp</a>
+            <ul class="collapse list-unstyled" id="thucdonSubmenu">
+              <li routerLinkActive="active">
+                <a routerLink="/ql-bep/qlthucdon">Quản lí thực đơn</a>
+              </li>
+             
+              <li routerLinkActive="active">
+                <a routerLink="/ql-bep/qlmonantheongay/them-suamonantheongay">Thêm món ăn theo ngày</a>
+              </li> 
+              <li routerLinkActive="active">
+                <a routerLink="/ql-bep">Tập dữ liệu món ăn</a>
+              </li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/ql-ykien">Quản lí ý kiến</a>
+          </li>
+          <li>
+            <a href="/ql-phieubengoan/ds-phieubengoan">Quản lí phiếu bé ngoan</a>
+          </li>
+          <li>
+            <a href="/auth.guard">Quản lí người dùng</a>
+          </li>
+        </ul>
+        <div class="footer">
+          <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Nguyen Duy Tan <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DoanNT.com</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </nav>  
+
+
+  <!-- Page Content  -->
+  <div id="content" class="p-4 p-md-5">
+   
+      <div class="container-fluid">
+        <button *ngIf="!isSidebarCollapsed" type="button" id="sidebarCollapse" class="btn btn-primary mr-auto active" (click)="toggleSidebar()">
+          <fa-icon [icon]="fabars"></fa-icon>
+          <span class="sr-only">Toggle Menu</span>
+        </button>
+      </div>
+   
+    
+  </div>
+</div>
+

@@ -1,0 +1,26 @@
+<form enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="classId">Mã lớp</label>
+        <input class="form-control" id="classId" [(ngModel)]="classId" name="classId" required>
+    </div>
+    <div class="form-group">
+        <label for="classtypeId">Mã loại lớp</label>
+        <input class="form-control" id="classtypeId" [(ngModel)]="classtypeId" name="classtypeId" required>
+    </div>
+    <div class="form-group">
+        <label for="nameClass">Tên lớp</label>
+        <input class="form-control" id="nameClass" [(ngModel)]="nameClass" name="nameClass" required>
+    </div>
+    <div class="form-group">
+        <label for="siso">Sỉ số</label>
+        <input type="number" class="form-control" id="siso" [(ngModel)]="siso" name="siso" required>
+    </div>
+    <div class="form-group">
+        <label for="namhoc">Năm học</label>
+        <input class="form-control" id="namhoc" [(ngModel)]="namhoc" name="namhoc" required>
+    </div>
+   
+    
+    <button *ngIf="isAddingLH" type="submit" (click)="addLophoc()" class="btn btn-primary">Thêm lớp</button>
+    <button *ngIf="!isAddingLH" type="submit" (click)="suaL()" class="btn btn-primary">Sửa lớp</button>
+</form>

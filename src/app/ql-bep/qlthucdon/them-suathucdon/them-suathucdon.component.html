@@ -1,0 +1,17 @@
+<form>
+    <div class="form-group">
+      <label for="menuId">Mã thực đơn</label>
+      <input class="form-control" id="menuId" [(ngModel)]="menuId" name="menuId" required>
+    </div>
+    <div class="form-group">
+      <label for="ngaybatdau">Ngày bắt đầu</label>
+      <input type="date" class="form-control" id="ngaybatdau" [(ngModel)]="ngaybatdau" name="ngaybatdau" required>
+    </div>
+    <div class="form-group">
+      <label for="ngayketthuc">Ngày kết thúc</label>
+      <input type="date" class="form-control" id="ngayketthuc" [(ngModel)]="ngayketthuc" name="ngayketthuc" required>
+    </div>
+    
+    <button *ngIf="isAddingNH" type="submit" (click)="addThucdon()" class="btn btn-primary">Thêm thực đơn</button>
+    <button *ngIf="!isAddingNH" type="submit" (click)="suaTD()" class="btn btn-primary">Sửa thực đơn</button>
+  </form>

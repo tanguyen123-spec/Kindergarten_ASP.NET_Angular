@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    margin-right: 1000px;
+  }
+.admin{
+    margin-right: 50px;
+    padding-left: 0px;
+}   
+.thoikhoabieu, .thucdon {
+    margin-bottom: 20px;
+}
+.push-right {
+    transition: opacity 0.3s;
+  }
+  
+  .push-right.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }

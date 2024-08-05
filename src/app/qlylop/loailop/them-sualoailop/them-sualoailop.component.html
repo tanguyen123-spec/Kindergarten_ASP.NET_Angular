@@ -1,0 +1,12 @@
+<form >
+    <div class="form-group">
+        <label for="classtypeId">Mã loại lớp</label>
+        <input class="form-control" id="classtypeId" [(ngModel)]="classtypeId" name="classtypeId" required>
+    </div>
+    <div class="form-group">
+        <label for="nameClasstype">Tên loại lớp</label>
+        <input class="form-control" id="nameClasstype" [(ngModel)]="nameClasstype" name="nameClasstype" required>
+    </div>   
+    <button *ngIf="isAddingLL" type="submit" (click)="addLopLoai()" class="btn btn-primary">Thêm lớp</button>
+    <button *ngIf="!isAddingLL" type="submit" (click)="suaLL()" class="btn btn-primary">Sửa lớp</button>
+</form>

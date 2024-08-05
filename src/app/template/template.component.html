@@ -1,0 +1,33 @@
+<div *ngIf=" !isLoggedIn" id="container_logo">
+    <h1 style="font-size: 40px; padding-top: 100px;">Phần mềm quản lí trường mầm non Cửu Long</h1>
+    <a href="" class="logo">
+        <img  src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+
+    </a>
+  </div>
+<form *ngIf="formGroup && !isLoggedIn" [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="login-form">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="Email" required>
+      <div *ngIf="formGroup.get('Email')?.invalid && formGroup.get('Email')?.touched" class="error-message">
+        <div *ngIf="formGroup.get('Email')?.hasError('required')">Email is required</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" required>
+      <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched" class="error-message">
+        <div *ngIf="formGroup.get('password')?.hasError('required')">Password is required</div>
+      </div>
+    </div>
+  
+    <div>
+        <br>
+        <br>
+      <button type="submit" [disabled]="formGroup.invalid" class="login-button">Đăng nhập</button>
+    </div>
+  </form>
+  
+  <button *ngIf="isLoggedIn" (click)="logout()" class="logout-button">Đăng xuất</button>
+  <span *ngIf="loggedInEmail" class="logged-in-email"> {{ loggedInEmail }}</span>

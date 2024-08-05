@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <a #downloadLink style="display: none;"></a>
+    <button type="button" class="btn btn-primary" style="margin-left: 300px;" (click)="prepareDownload()">Tải tập liệu đồ ăn buổi sáng</button>
+    <a #downloadLink style="display: none;"></a>
+    <button type="button" class="btn btn-primary" style="margin-left: 300px;" (click)="prepareDownload2()">Tải tập liệu đồ ăn buổi trưa</button>
+    <a #downloadLink style="display: none;"></a>
+    <button type="button" class="btn btn-primary" style="margin-left: 300px;" (click)="prepareDownload3()">Tải tập liệu đồ ăn buổi chiều</button>
+    <a #downloadLink style="display: none;"></a>
+    <button type="button" class="btn btn-primary" style="margin-left: 300px;" (click)="prepareDownload4()">Tải tập liệu đồ ăn  tráng miệng</button>
+    <div class="modal-body">
+        <label for="file1">Upload File buổi sáng</label>
+        <input type="file" class="form-control" #importcsv (change)="onFileSelected($event)" id="file1" name="file1" required>
+      </div>
+      <div class="modal-body">
+        <label for="file2">Upload File buổi trưa</label>
+        <input type="file" class="form-control" #importcsv (change)="onFileSelected2($event)" id="file2" name="file2" required>
+      </div>
+      <div class="modal-body">
+        <label for="file3">Upload File buổi chiều</label>
+        <input type="file" class="form-control" #importcsv (change)="onFileSelected3($event)" id="file3" name="file3" required>
+      </div>
+      <div class="modal-body">
+        <label for="file4">Upload File tráng miệng</label>
+        <input type="file" class="form-control" #importcsv (change)="onFileSelected4($event)" id="file4" name="file4" required>
+      </div>
+      
+</div>

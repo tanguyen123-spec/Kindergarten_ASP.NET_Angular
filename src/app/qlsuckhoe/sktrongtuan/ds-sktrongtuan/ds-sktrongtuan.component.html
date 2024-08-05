@@ -1,0 +1,71 @@
+<!-- The Modal -->
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{tieuDe}}</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="dong()">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-them-suasktrongtuan [sktt]="sktt" *ngIf="dangThemSua"></app-them-suasktrongtuan>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="table-responsive">
+    <h2 style="text-align: center;">Danh sách sức khỏe trong tuần</h2>
+    <div class="search-container">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Tìm kiếm...">
+        <button type="submit" id="search-button">Tìm kiếm</button>
+        <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-toggle="modal" data-target="#myModal" (click)="themsktt()">
+          Thêm phiếu
+        </button>
+      </form>
+    </div>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th>Mã sức khỏe</th>
+          <th>Mã học viên</th>
+          <th>Mã giáo viên</th>
+          <th>Ngày kiểm tra</th>
+          <th>Nhiệt độ</th>
+          <th>Trạng thái ăn</th>
+          <th>Trạng thái ngủ</th>
+          <th>Thái độ học hành</th>
+       
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sktt of DsSKTT">
+          <td>{{ sktt.ttskId }}</td>
+          <td>{{ sktt.childResumeId }}</td>
+          <td>{{ sktt.magiaovien }}</td>
+          <td>{{ sktt.ngaykiemtra | date:'dd/MM/yyyy' }}</td>
+          <td>{{ sktt.nhietdo }}</td>
+          <td>{{ sktt.trangthaian }}</td>
+          <td>{{ sktt.trangthaingu }}</td>
+          <td>{{ sktt.thaidohochanh }}</td>
+        
+          <td>
+            <button type="button" class="btn btn-light mr-1" (click)="chitietsktt(sktt)" data-toggle="modal" data-target="#myModal">
+              Sửa
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-light mr-1" (click)="xoasktt(sktt)">
+              Xóa
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

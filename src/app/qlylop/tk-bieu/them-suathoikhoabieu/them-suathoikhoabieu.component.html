@@ -1,0 +1,28 @@
+<form enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="matkb">Mã thời khóa biểu</label>
+        <input class="form-control" id="matkb" [(ngModel)]="matkb" name="matkb" required>
+    </div>
+    <div class="form-group">
+        <label for="classId">Mã lớp</label>
+        <select class="form-control" id="classId" [(ngModel)]="classId" name="classId" required>
+          <option value="">Chọn lớp</option> <!-- Tùy chọn mặc định -->
+          <option *ngFor="let classItem of DSLH" [value]="classItem.classId">{{ classItem.classId }}</option>
+        </select>
+      </div>
+    <div class="form-group">
+        <label for="magiaovien">Mã giáo viên</label>
+        <input class="form-control" id="magiaovien" [(ngModel)]="magiaovien" name="magiaovien" required>
+    </div>
+    <div class="form-group">
+        <label for="ngaybatdau">Ngày bắt đầu</label>
+        <input type="date" class="form-control" id="ngaybatdau" [(ngModel)]="ngaybatdau" name="ngaybatdau" required>
+    </div>
+    <div class="form-group">
+        <label for="ngayketthuc">Ngày kết thúc</label>
+        <input type="date" class="form-control" id="ngayketthuc" [(ngModel)]="ngayketthuc" name="ngayketthuc" required>
+    </div>
+    
+    <button *ngIf="isAddingLH" type="submit" (click)="addTkb()" class="btn btn-primary">Thêm lớp</button>
+    <button *ngIf="!isAddingLH" type="submit" (click)="suatkb()" class="btn btn-primary">Sửa lớp</button>
+</form>

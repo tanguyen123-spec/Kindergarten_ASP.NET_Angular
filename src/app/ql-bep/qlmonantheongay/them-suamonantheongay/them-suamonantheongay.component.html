@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container">
+   <div class="randombtn">
+    <button type="button" class="btn btn-primary" (click)="getRandomFoodBF();getRandomFoodLunch();getRandomFoodAF();getRandomFoodDS()">Lấy ngẫu nhiên</button>
+   </div>
+   <div class="form_create">
+    <form>
+        
+        <div class="form-group">
+          <label for="menuId">Chọn thực đơn</label>
+          <select class="form-control" name="menuId" id="menuId" [(ngModel)]="menuId"
+          >
+          <option value="">Ngày bắt đầu - Ngày kết thúc</option>
+          <option *ngFor="let td of DsTD" [value]="td.menuId">{{ td.ngaybatdau | date:'dd/MM/yyyy' }}-{{ td.ngayketthuc | date:'dd/MM/yyyy' }}
+          </option>
+        </select>
+        </div>
+        <div class="form-group">
+          <label for="ngay">Ngày</label>
+          <input  type="date" class="form-control" id="ngay" [(ngModel)]="ngay" name="ngay" required>
+        </div>
+        <div class="form-group">
+            <label for="buoisang">Buổi sáng</label>
+            <input class="form-control" id="buoisang" [(ngModel)]="buoisang" name="buoisang" required>
+          </div>
+          <div class="form-group">
+            <label for="buoitrua">Buổi trưa</label>
+            <input class="form-control" id="buoitrua" [(ngModel)]="buoitrua" name="buoitrua" required>
+          </div>
+          <div class="form-group">
+            <label for="buoichieu">Buổi chiều</label>
+            <input class="form-control" id="buoichieu" [(ngModel)]="buoichieu" name="buoichieu" required>
+          </div>
+          <div class="form-group">
+            <label for="trangmieng">Tráng miệng</label>
+            <input class="form-control" id="trangmieng" [(ngModel)]="trangmieng" name="trangmieng" required>
+          </div>
+      
+        <button   type="submit" (click)="addMA()" class="btn btn-primary">Thêm món ăn</button>
+      </form>
+   </div>
+</div>

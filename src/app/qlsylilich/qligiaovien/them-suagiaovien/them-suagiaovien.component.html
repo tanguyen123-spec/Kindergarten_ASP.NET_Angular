@@ -1,0 +1,28 @@
+<form enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="magiaovien">Mã giáo viên</label>
+      <input class="form-control" id="magiaovien" [(ngModel)]="magiaovien" name="magiaovien" required>
+    </div>
+    <div class="form-group">
+      <label for="maloaigiaovien">Mã loại giáo viên</label>
+      <input class="form-control" id="maloaigiaovien" [(ngModel)]="maloaigiaovien" name="maloaigiaovien" required>
+    </div>
+    <div class="form-group">
+      <label for="tengiaovien">Tên giáo viên</label>
+      <input class="form-control" id="tengiaovien" [(ngModel)]="tengiaovien" name="tengiaovien" required>
+    </div>
+    <div class="form-group">
+      <label for="ngaysinh">Ngày sinh</label>
+      <input class="form-control" id="ngaysinh" [(ngModel)]="ngaysinh" name="ngaysinh" required>
+    </div>
+    <div class="form-group">
+      <label for="diachi">Địa chỉ</label>
+      <input class="form-control" id="diachi" [(ngModel)]="diachi" name="diachi" required>
+    </div>
+    <div class="form-group">
+      <label for="sodienthoai">Số điện thoại</label>
+      <input class="form-control" id="sodienthoai" [(ngModel)]="sodienthoai" name="sodienthoai" required>
+    </div>
+    <button *ngIf="isAddingHV" type="submit" (click)="addGiaoVien()" class="btn btn-primary">Thêm Phiếu</button>
+    <button *ngIf="!isAddingHV" type="submit" (click)="suaGV()" class="btn btn-primary">Sửa Phiếu</button>
+  </form>

@@ -1,0 +1,77 @@
+<!-- The Modal -->
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{tieuDe}}</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="dong()">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-them-sua-phuhuynh [ph]="ph" *ngIf="dangThemSua"></app-them-sua-phuhuynh>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="table-responsive">
+    <h2 style="text-align: center;">Danh sách phụ huynh</h2>
+    <div class="search-container">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Tìm kiếm...">
+        <button type="submit" id="search-button">Tìm kiếm</button>
+        <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-toggle="modal" data-target="#myModal" (click)="themph()">
+          Thêm phụ huynh
+        </button>
+      </form>
+    </div>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th>Mã phụ huynh</th>
+          <th>Tên mẹ học viên </th>
+          <th>Ngày sinh</th>
+          <th>Số  liên hệ 1</th>
+          <th>Tên ba học viên</th>
+          <th>Số liên hệ 2</th>
+          <th>Địa chỉ</th>
+          <th>Giới tính</th>
+          <th>Công việc</th>
+          <th>Số con trong gia đình</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ph of DsPH">
+          <td>{{ ph.parentResumeId }}</td>
+          <td>{{ ph.nameP }}</td>
+          <td>{{ ph.dateOfBirth | date:'dd/MM/yyyy' }}</td>
+          <td>{{ ph.phone1 }}</td>
+          <td>{{ ph.nameP2 }}</td>
+          <td>{{ ph.phone2 }}</td>
+          <td>{{ ph.diachi }}</td>
+          <td>{{ ph.gender ? 'Nam' : 'Nữ' }}</td>
+          <td>{{ ph.jobParent }}</td>
+          <td>{{ ph.numberOfChildren }}</td>
+         
+
+          <td>
+            <button type="button" class="btn btn-light mr-1" (click)="chitietph(ph)" data-toggle="modal" data-target="#myModal">
+              Sửa
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-light mr-1" (click)="xoaphuhuynh(ph)">
+              Xóa
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="table-responsive">
+      <h2 style="text-align: center;">Danh sách chi phi đã đóng </h2>
+      <div class="search-container">
+        <form id="search-form">
+          <input type="text" id="search-input" placeholder="Tìm kiếm...">
+          <button type="submit" id="search-button">Tìm kiếm</button>
+        </form>
+      </div>
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th>Mã biên lai</th>
+            <th>Mã học viên</th>
+            <th>Tổng chi phí </th>
+           <th>Thời gian</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bl of DsBL">
+            <td>{{ bl.mabienlai }}</td>
+            <td>{{ bl.childResumeId }}</td>
+            <td>{{ bl.tongchiphiphaitra }}</td>
+           <td>{{ bl.thang_namhoc }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

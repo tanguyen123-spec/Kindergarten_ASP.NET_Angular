@@ -1,0 +1,62 @@
+<form enctype="multipart/form-data" class="form-horizontal">
+    <div class="form-group">
+        <label for="parentResumeId" class="col-sm-2 control-label">Mã phụ huynh</label>
+        <div class="col-sm-4">
+            <input class="form-control" id="parentResumeId" [(ngModel)]="parentResumeId" name="parentResumeId" required>
+        </div>
+        <label for="nameP" class="col-sm-2 control-label">Tên phụ huynh 1</label>
+        <div class="col-sm-4">
+            <input class="form-control" id="nameP" [(ngModel)]="nameP" name="nameP" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="dateOfBirth" class="col-sm-2 control-label">Ngày sinh</label>
+        <div class="col-sm-4">
+            <input type="date" class="form-control" id="dateOfBirth" [(ngModel)]="dateOfBirth" name="dateOfBirth" required>
+        </div>
+        <label for="phone1" class="col-sm-2 control-label">Số điện thoại 1</label>
+        <div class="col-sm-4">
+            <input class="form-control" id="phone1" [(ngModel)]="phone1" name="phone1" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nameP2" class="col-sm-2 control-label">Tên phụ huynh 2</label>
+        <div class="col-sm-4">
+            <input class="form-control" id="nameP2" [(ngModel)]="nameP2" name="nameP2" required>
+        </div>
+        <label for="phone2" class="col-sm-2 control-label">Số điện thoại 2</label>
+        <div class="col-sm-4">
+            <input class="form-control" id="phone2" [(ngModel)]="phone2" name="phone2" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="diachi" class="col-sm-2 control-label">Địa chỉ</label>
+        <div class="col-sm-4">
+            <input class="form-control" id="diachi" [(ngModel)]="diachi" name="diachi" required>
+        </div>
+        <label for="gender" class="col-sm-2 control-label">Giới tính</label>
+        <div class="col-sm-4">
+            <select class="form-control" id="gender" [(ngModel)]="gender" name="gender" required>
+                <option [value]="true">Nam</option>
+                <option [value]="false">Nữ</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="jobParent" class="col-sm-2 control-label">Công việc</label>
+        <div class="col-sm-4">
+            <input class="form-control" id="jobParent" [(ngModel)]="jobParent" name="jobParent" required>
+        </div>
+        <label for="numberOfChildren" class="col-sm-2 control-label">Có được bao nhiêu người con?</label>
+        <div class="col-sm-4">
+            <input type="number" class="form-control" id="numberOfChildren" [(ngModel)]="numberOfChildren" name="numberOfChildren" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button *ngIf="isAddingLH" type="submit" (click)="addPhuhuynh()" class="btn btn-primary">Thêm phụ huynh</button>
+            <button *ngIf="!isAddingLH" type="submit" (click)="suaPH()" class="btn btn-primary">Sửa phụ huynh</button>
+        </div>
+    </div>
+</form>

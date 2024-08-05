@@ -1,0 +1,73 @@
+<!-- The Modal -->
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{tieuDe}}</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="dong()">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-them-suanhaphoc [nh]="nh" *ngIf="dangThemSua"></app-them-suanhaphoc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    
+    <div class="table-responsive">
+        <h2 style="text-align: center;"> Danh sách nhập học</h2>
+        <div class="search-container">
+          <form id="search-form">
+              <input type="text" id="search-input" placeholder="Tìm kiếm...">
+              <button type="submit" id="search-button">Tìm kiếm</button>
+                <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-toggle="modal" data-target="#myModal" (click)="themnh()">
+                  Thêm phiếu nhập học
+                </button>
+          </form>
+      </div>
+      <table class="table text-center">
+       
+        <thead>
+          <tr>
+            <th>Mã phiếu nhập học</th>
+            <th>Họ và tên</th>
+            <th>Lớp học mong muốn</th>
+            <th>Năm học</th>
+            <th>Bắt đầu học</th>
+            <th>Ngày tạo đơn</th>
+            <th>Số điện thoại</th>
+            <th>Trạng thái kiểm duyệt</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let nh of DsNH" >
+
+            <td>{{nh.afaId}}</td>
+            <td>{{nh.name}}</td>
+            <td>{{nh.lophocmongmuon}}</td>
+            <td>{{nh.namhoc}}</td>
+            <td>{{ nh.batdauhoc | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ nh.ngaytaodon | date: 'dd/MM/yyyy' }}</td>
+            <td>{{nh.sdtLienhe}}</td>
+        
+            <td>
+            
+                      
+              
+            </td>
+            <td>
+              <button type="button" class="btn btn-light mr-1" (click)="xoaphieunhaphoc(nh)" >
+                Xóa
+            </button>
+            </td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  

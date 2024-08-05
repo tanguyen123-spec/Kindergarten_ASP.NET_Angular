@@ -1,0 +1,27 @@
+<form>
+    <div class="form-group">
+      <label for="opinionId" >Mã ý kiến</label>
+      <input class="form-control" id="opinionId" [(ngModel)]="opinionId" name="opinionId" required>
+    </div>
+    <div class="form-group">
+        <label for="machude">Mã chủ đề</label>
+        <select class="form-control" id="machude" [(ngModel)]="machude" name="machude" required>
+          <option *ngFor="let chude of DsCD" [value]="chude.machude">{{ chude.tenchude }}</option>
+        </select>
+      </div>
+    <div class="form-group">
+      <label for="parentResumeId">Mã phụ huynh</label>
+      <input class="form-control" id="parentResumeId" [(ngModel)]="parentResumeId" name="parentResumeId" required>
+    </div>
+    <div class="form-group">
+        <label for="noteOpinion">Ý kiến</label>
+        <input type="text" class="form-control" id="noteOpinion" [(ngModel)]="noteOpinion" name="noteOpinion" required>
+      </div>
+      <div class="form-group" *ngIf="!isAddingNH">
+        <label for="giaiphap">Giải pháp</label>
+        <input type="text" class="form-control" id="giaiphap" [(ngModel)]="giaiphap" name="giaiphap" required>
+      </div>
+    
+    <button *ngIf="isAddingNH" type="submit" (click)="addYkien()" class="btn btn-primary">Thêm ý kiến</button>
+    <button *ngIf="!isAddingNH" type="submit" (click)="suaYK()" class="btn btn-primary">Sửa ý kiến</button>
+  </form>

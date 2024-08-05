@@ -1,0 +1,54 @@
+<form enctype="multipart/form-data">
+    
+    <div class="form-group">
+      <label for="parentResumeId">Mã phụ huynh học viên</label>
+      <input class="form-control" id="parentResumeId" [(ngModel)]="parentResumeId" name="parentResumeId" required>
+    </div>
+    <div class="form-group">
+      <label for="afaId">Mã nhập học</label>
+      <input class="form-control" id="afaId" [(ngModel)]="afaId" name="afaId" required>
+    </div>
+    <div class="form-group">
+      <label for="classId">Mã lớp</label>
+      <input class="form-control" id="classId" [(ngModel)]="classId" name="classId" required>
+    </div>
+    <div class="form-group">
+      <label for="name">Họ và tên</label>
+      <input class="form-control" id="name" [(ngModel)]="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="diachi">Địa chỉ</label>
+      <input class="form-control" id="diachi" [(ngModel)]="diachi" name="diachi" required>
+    </div>
+    <div class="form-group">
+      <label for="gender">Giới tính</label>
+      <select class="form-control" id="gender" [(ngModel)]="gender" name="gender" required>
+        <option value="true">Nam</option>
+        <option value="false">Nữ</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="chiphibandau">Chi phí ban đầu</label>
+      <input type="number" class="form-control" id="chiphibandau" [(ngModel)]="chiphibandau" name="chiphibandau" required>
+    </div>
+    <div class="form-group">
+      <label for="medicalHistory">Medical History</label>
+      <textarea class="form-control" id="medicalHistory" [(ngModel)]="medicalHistory" name="medicalHistory" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="informationDif">Information Difficulties</label>
+      <textarea class="form-control" id="informationDif" [(ngModel)]="informationDif" name="informationDif" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="currentHealthStatus">Current Health Status</label>
+      <input class="form-control" id="currentHealthStatus" [(ngModel)]="currentHealthStatus" name="currentHealthStatus" required>
+    </div>
+   
+    <div class="form-group">
+      <label for="imageUrl">Ảnh học viên</label>
+      <input type="file"class="form-control" (change)="onFileSelected($event)" id="imageUrl" [(ngModel)]="imageUrl" name="imageUrl" required>
+      <p>Selected file: {{ fileName }}</p>
+    </div>
+    <button *ngIf="isAddingHV" type="submit" (click)="addHocVien();onUpload()" class="btn btn-primary">Thêm Phiếu</button>
+    <button *ngIf="!isAddingHV" type="submit" (click)="suaHV()" class="btn btn-primary">Sửa Phiếu</button>
+  </form>

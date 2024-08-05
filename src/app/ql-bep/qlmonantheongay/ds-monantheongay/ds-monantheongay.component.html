@@ -1,0 +1,60 @@
+
+<div class="container">
+    
+  <div class="table-responsive">
+    <h2 style="text-align: center;" *ngFor="let item of td">Danh sách món ăn {{ item.ngaybatdau | date:'dd/MM/yyyy' }} - {{ item.ngayketthuc | date:'dd/MM/yyyy' }} </h2>
+
+   
+      <div class="search-container">
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Tìm kiếm...">
+            <button type="submit" id="search-button">Tìm kiếm</button>
+            <div class="timer"  >
+              <p></p>
+            </div>
+        </form>
+    </div>
+    <table class="table text-center">
+     
+      <thead>
+        <tr>
+          <th>Mã lịch ngày</th>
+          <th>Ngày</th>
+          <th>Buổi sáng</th>
+          <th>Buổi trưa</th>
+          <th>Buổi chiều</th>
+          <th>Tráng miệng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let MA of displayedTkb" >
+          <td>{{MA.malichngay}}</td>
+          <td>{{ MA.ngay | date: 'dd/MM/yyyy' }}</td>          <td>{{MA.buoisang}}</td>
+          <td>{{MA.buoitrua}}</td>
+          <td>{{MA.buoichieu}}</td>
+          <td>{{MA.trangmieng}}</td>
+        </tr>
+      
+    </tbody>
+  </table>
+   <!-- Pagination -->
+   <nav *ngIf="totalPages > 1" aria-label="Page navigation" class="navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="goToPage(1)">Trang đầu</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="goToPage(currentPage - 1)">Trang trước</button>
+      </li>
+      <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+        <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="goToPage(currentPage + 1)">Trang tiếp</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="goToPage(totalPages)">Trang cuối</button>
+      </li>
+    </ul>
+  </nav>
+</div>

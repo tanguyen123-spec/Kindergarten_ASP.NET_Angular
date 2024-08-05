@@ -1,0 +1,13 @@
+<form enctype="multipart/form-data">
+   
+    <div class="form-group">
+      <label for="maloaigiaovien">Mã loại giáo viên</label>
+      <input class="form-control" id="maloaigiaovien" [(ngModel)]="maloaigiaovien" name="maloaigiaovien" required>
+    </div>
+    <div class="form-group">
+        <label for="tenloaigiaovien">Tên loại giáo viên</label>
+        <input class="form-control" id="tenloaigiaovien" [(ngModel)]="tenloaigiaovien" name="tenloaigiaovien" required>
+      </div>
+    <button *ngIf="isAddingHV" type="submit" (click)="addLoaiGiaoVien()" class="btn btn-primary">Thêm Phiếu</button>
+    <button *ngIf="!isAddingHV" type="submit" (click)="suaLGV()" class="btn btn-primary">Sửa Phiếu</button>
+  </form>

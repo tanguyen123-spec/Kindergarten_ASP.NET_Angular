@@ -1,0 +1,32 @@
+<form >
+    <div class="form-group">
+        <label for="tiethocid">Mã tiết học</label>
+        <input class="form-control" id="tiethocid" [(ngModel)]="tiethocid" name="tiethocid" required>
+    </div>
+    <div class="form-group">
+        <label for="matkb">Mã thời khóa biểu</label>
+        <select class="form-control" id="matkb" [(ngModel)]="matkb" name="matkb" required>
+          <option value="">Chọn lớp</option> <!-- Tùy chọn mặc định -->
+          <option *ngFor="let classItem of DsTKB" [value]="classItem.matkb">{{ classItem.matkb }}</option>
+        </select>
+      </div> 
+    <div class="form-group">
+        <label for="ngayhoc">Ngày học</label>
+        <input type="date" class="form-control" id="ngayhoc" [(ngModel)]="ngayhoc" name="ngayhoc" required>
+    </div>  
+    <div class="form-group">
+        <label for="thoigianbatdauhoc">Thời gian bắt đầu học</label>
+        <input type="time" class="form-control" id="thoigianbatdauhoc" [(ngModel)]="thoigianbatdauhoc" name="thoigianbatdauhoc" required>
+    </div>  
+    <div class="form-group">
+        <label for="thoigianketthuchoc">Thời gian kết thúc</label>
+        <input type="time" class="form-control" id="thoigianketthuchoc" [(ngModel)]="thoigianketthuchoc" name="thoigianketthuchoc" required>
+    </div>  
+   
+    <div class="form-group">
+        <label for="tieuthoc">Tên tiết học</label>
+        <input class="form-control" id="tieuthoc" [(ngModel)]="tieuthoc" name="tieuthoc" required>
+    </div>   
+    <button *ngIf="isAddingLL" type="submit" (click)="addLopLoai()" class="btn btn-primary">Thêm tiết học</button>
+    <button *ngIf="!isAddingLL" type="submit" (click)="suaLL()" class="btn btn-primary">Sửa tiết học</button>
+</form>

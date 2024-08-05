@@ -1,0 +1,40 @@
+<form>
+    <div class="form-group" >
+      <label for="afaId">Mã nhập học</label>
+      <input class="form-control" id="afaId" [(ngModel)]="afaId" name="afaId" required readonly>
+    </div>
+    <div class="form-group">
+      <label for="lophocmongmuon">Lớp học mong muốn</label>
+      <input class="form-control" id="lophocmongmuon" [(ngModel)]="lophocmongmuon" name="lophocmongmuon" required>
+    </div>
+    <div class="form-group">
+      <label for="namhoc">Năm học</label>
+      <input class="form-control" id="namhoc" [(ngModel)]="namhoc" name="namhoc" required>
+    </div>
+    <div class="form-group">
+      <label for="batdauhoc">Bắt đầu học</label>
+      <input type="date" class="form-control" id="batdauhoc" [(ngModel)]="batdauhoc" name="batdauhoc" required>
+    </div>
+    <div class="form-group">
+      <label for="status">Trạng thái</label>
+      <select class="form-control" id="status" [(ngModel)]="status" name="status" required>
+        <option [ngValue]="true">Đã duyệt</option>
+        <option [ngValue]="false">Chưa duyệt</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ngaytaodon">Ngày tạo đơn</label>
+      <input  class="form-control" id="ngaytaodon" [(ngModel)]="ngaytaodon" name="ngaytaodon" required>
+    </div>
+    <div class="form-group">
+      <label for="sdtLienhe">Số điện thoại liên hệ</label>
+      <input class="form-control" id="sdtLienhe" [(ngModel)]="sdtLienhe" name="sdtLienhe" required>
+    </div>
+    <div class="form-group">
+      <label for="name">Tên</label>
+      <input class="form-control" id="name" [(ngModel)]="name" name="name" required>
+    </div>
+  
+    <button *ngIf="isAddingNH" type="submit" (click)="addNhaphoc()" class="btn btn-primary">Thêm Phiếu</button>
+    <button *ngIf="!isAddingNH" type="submit" (click)="suaNH()" class="btn btn-primary">Sửa Phiếu</button>
+  </form>

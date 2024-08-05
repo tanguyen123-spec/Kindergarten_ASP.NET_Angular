@@ -1,0 +1,42 @@
+<form enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="skdkId">Mã sức khỏe định kì</label>
+        <input class="form-control" id="skdkId" [(ngModel)]="skdkId" name="skdkId" required>
+    </div>
+    <div class="form-group">
+        <label for="magiaovien">Mã giáo viên</label>
+        <input class="form-control" id="magiaovien" [(ngModel)]="magiaovien" name="magiaovien" required>
+    </div>
+    <div class="form-group">
+        <label for="childResumeId">Mã học viên</label>
+        <input class="form-control" id="childResumeId" [(ngModel)]="childResumeId" name="childResumeId" required>
+    </div>
+    <div class="form-group">
+        <label for="ngaykiemtra">Ngày kiểm tra</label>
+        <input type="date" class="form-control" id="ngaykiemtra" [(ngModel)]="ngaykiemtra" name="ngaykiemtra" required>
+    </div>
+    <div class="form-group">
+        <label for="chieucao">Chiều cao</label>
+        <input type="text"  class="form-control" id="chieucao" [(ngModel)]="chieucao" name="chieucao" required>
+    </div>
+    <div class="form-group">
+        <label for="cannang">Cân nặng</label>
+        <input type="text" class="form-control" id="cannang" [(ngModel)]="cannang" name="cannang" required>
+    </div>
+    <div class="form-group">
+        <label for="benhlykhac">Bệnh lý khác</label>
+        <input  type="text" class="form-control" id="benhlykhac" [(ngModel)]="benhlykhac" name="benhlykhac" required>
+    </div>
+    <div class="form-group">
+        <label for="ghichubacsy">Ghi chú bác sỹ</label>
+        <input type="text" class="form-control" id="ghichubacsy" [(ngModel)]="ghichubacsy" name="ghichubacsy" required>
+    </div>
+    <div class="form-group">
+        <label for="ngayTao">Ngày tạo</label>
+        <input type="date" class="form-control" id="ngayTao" [(ngModel)]="ngayTao" name="ngayTao" required>
+    </div>
+   
+    
+    <button *ngIf="isAddingLH" type="submit" (click)="addSkdk()" class="btn btn-primary">Thêm sức khỏe định kì</button>
+    <button *ngIf="!isAddingLH" type="submit" (click)="suaSKDK()" class="btn btn-primary">Sửa sức khỏe định kì</button>
+</form>

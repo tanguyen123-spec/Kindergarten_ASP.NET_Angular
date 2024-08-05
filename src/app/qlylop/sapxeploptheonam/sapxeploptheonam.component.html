@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel"
+  aria-hidden="true" *ngIf="displayModal" (hidden)="resetModal()">
+  <!-- Nội dung của modal -->
+</div>
+
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">Sắp xếp lớp theo năm</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="wrapper img"
+          style="background-image: url(http://localhost:5160/Uploads/Hocvien/Hinh-nen-mam-non-2.jpg/image.png);">
+          <div class="row">
+            <div class="col-md-9 col-lg-7">
+              <div class="contact-wrap w-100 p-md-5 p-4">
+                <div id="form-message-warning" class="mb-4"></div>
+                <div id="form-message-success" class="mb-4">
+                  Your message was sent, thank you!
+                </div>
+                <form id="contactForm" name="contactForm" class="contactForm">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="label" for="classtypeId">Loại lớp</label>
+                        <select class="form-control" name="classtypeId" id="classtypeId" [(ngModel)]="classtypeId"
+                          (change)="getNH_classtype()">
+                          <option value="">Bấm để loại lớp</option>
+                          <option *ngFor="let loaiLop of DsLL" [value]="loaiLop.classtypeId">{{ loaiLop.nameClasstype }}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="label" for="namhoc">Năm học</label>
+                        <input type="text" class="form-control" name="namhoc" id="namhoc" placeholder="xxxx-xxxx"
+                          [(ngModel)]="namhoc" (change)="getNH_classtype()">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="label" for="oldClassId">Lớp học cần chuyển</label>
+                        <input type="text" class="form-control" name="oldClassId" id="oldClassId" placeholder="oldClassId"
+                          [(ngModel)]="oldClassId">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="label" for="newClassId">Lớp học chuyển đến</label>
+                        <select class="form-control" name="newClassId" id="newClassId" [(ngModel)]="newClassId">
+                          <option value="">Chọn lớp học chuyển đến</option>
+                          <option *ngFor="let nhClasstype of nhClasstypeOptions" [value]="nhClasstype.classId">{{ nhClasstype.classId }}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <button class="btn btn-primary" (click)="submitForm()" data-toggle="modal" data-target="notificationModal">
+                          Xếp lớp
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

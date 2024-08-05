@@ -1,0 +1,263 @@
+<!-- The Modal -->
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{tieuDe}}</h4>
+          <button type="button" class="close" data-dismiss="modal" (click)="dong()">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <app-them-suahoatdong [hd]="hd" *ngIf="dangThemSua"></app-them-suahoatdong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- The Detail Modal 3  -->
+<div class="modal fade"  id="myModal3" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Tạo chi phí cho từng học viên</h4>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body"  >
+            <form >
+                <div class="form-group">
+                    <label for="ChildResumeId">Mã học viên</label>
+                    <input class="form-control" id="ChildResumeId" [(ngModel)]="ChildResumeId" name="ChildResumeId">
+                  </div>
+                  <div class="form-group">
+                    <label for="thang_namhoc">Nhập tháng năm học</label>
+                    <input class="form-control" id="thang_namhoc" [(ngModel)]="thang_namhoc" name="thang_namhoc" placeholder="xx/xxxx">
+                  </div>
+            </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" (click)="addchiphichinh()" >Tạo</button>        
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+     <!-- Modal detail 2 -->
+  <div class="modal fade"  id="myModal2" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Thêm hoạt động chính</h4>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body"  >
+            <form >
+                <div class="form-group">
+                    <label for="maHoatdongchinh">Mã hoạt động chính</label>
+                    <input class="form-control" id="maHoatdongchinh" [(ngModel)]="maHoatdongchinh" name="maHoatdongchinh" required readonly>
+                  </div>
+                <div class="form-group">
+                    <label for="mahoatdong">Mã hoạt động</label>
+                    <select class="form-control" name="mahoatdong" id="mahoatdong" [(ngModel)]="mahoatdong">
+                        <option value="">Chọn hoạt động </option>
+                        <option *ngFor="let hd of DsHD" [value]="hd.mahoatdong">{{ hd.tenhoatdong }}</option>
+                      </select>
+                </div>
+            </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" (click)="addHDC()" >Thêm  hoạt động chính</button>        
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+     <!-- Modal detail 4-->
+     <div class="modal fade"  id="myModal4" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Tạo chi phí cho tất cả học viên</h4>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body"  >
+                <form >
+                    <div class="form-group">
+                        <label for="thang_namhoc">Nhập tháng năm học </label>
+                        <input class="form-control" id="thang_namhoc" [(ngModel)]="thang_namhoc" name="thang_namhoc" placeholder="xx/xxxx">
+                      </div>
+                   
+                </form>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" (click)="addchiphichinhall()" >Tạo</button>        
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- Modal detail 5-->
+     <div class="modal fade"  id="myModal5" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Tạo chi phí ngoại cho  học viên</h4>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body"  >
+              <form >
+                <div class="form-group">
+                  <label for="machiphiphu">Nhập mã hoạt động phụ </label>
+                  <input class="form-control" id="machiphiphu" [(ngModel)]="machiphiphu" name="machiphiphu" required readonly>
+                </div>
+                <div class="form-group">
+                  <label for="child_resume_id">Nhập mã học viên </label>
+                  <input class="form-control" id="child_resume_id" [(ngModel)]="child_resume_id" name="child_resume_id" >
+                </div>
+                <div class="form-group">
+                  <label for="mahoatdong">Nhập mã hoạt động </label>
+                  <input class="form-control" id="mahoatdong" [(ngModel)]="mahoatdong" name="mahoatdong" >
+                </div>
+                  <div class="form-group">
+                      <label for="thang_namhoc">Nhập tháng năm học </label>
+                      <input class="form-control" id="thang_namhoc" [(ngModel)]="thang_namhoc" name="thang_namhoc" placeholder="xx/xxxx">
+                    </div>
+                 
+              </form>
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" (click)="addchiphiphu()" >Tạo</button>        
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="container">
+      
+      <div class="table-responsive">
+          <h2 style="text-align: center;"> Danh sách hoạt động</h2>
+          <div class="search-container">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Tìm kiếm...">
+                <button type="submit" id="search-button">Tìm kiếm</button>
+                  <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-toggle="modal" data-target="#myModal" (click)="themhd()">
+                    Thêm hoạt động
+                  </button>
+                 
+                  <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-toggle="modal" data-target="#myModal3">
+                   Tạo bảng chi phí cho từng học viên
+                  </button>
+                  <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-toggle="modal" data-target="#myModal4">
+                    Tạo bảng chi phí cho tất cả học viên
+                   </button>
+                  <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-toggle="modal" data-target="#myModal5" (click)="generateRandomMaHoatdongPhu()">
+                    Thêm  hoạt động ngoại cho học viên
+                   </button>
+            </form>
+        </div>
+        <table class="table text-center">
+         
+          <thead>
+            <tr>
+              <th>Mã hoạt động</th>
+              <th>Tên hoạt động</th>
+              <th>Chi phí</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let hd of displayedTkb">
+  
+              <td>{{hd.mahoatdong}}</td>
+              <td>{{hd.tenhoatdong}}</td>
+              <td>{{hd.chiphi}}</td>
+            
+              <td>
+              
+                          <button type="button"  class="btn btn-light mr-1" (click)="chitiethd(hd)" data-toggle="modal" data-target="#myModal">
+                      Sửa
+                  </button>
+                
+              </td>
+              <td>
+                <button type="button" class="btn btn-light mr-1" (click)="xoahd(hd)" >
+                  Xóa
+              </button>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  <!-- Pagination -->
+ <nav *ngIf="totalPages > 1" aria-label="Page navigation" class="navigation">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button class="page-link" (click)="goToPage(1)">Trang đầu</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button class="page-link" (click)="goToPage(currentPage - 1)">Trang trước</button>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+      <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <button class="page-link" (click)="goToPage(currentPage + 1)">Trang tiếp</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <button class="page-link" (click)="goToPage(totalPages)">Trang cuối</button>
+    </li>
+  </ul>
+</nav>
+  <div class="container2">
+      
+      <div class="table-responsive">
+          <h2 class="_22" style="text-align: center;"> Danh sách hoạt động chính</h2>
+          <button type="button" class="btn btn-primary" style="margin-left: 50px;" (click)="generateRandomMaHoatdongchinh()" data-toggle="modal" data-target="#myModal2">
+            Thêm hoạt động chính
+          </button>
+        <table class="table text-center">
+         
+          <thead>
+            <tr>
+              <th>Mã hoạt động chính</th>
+              <th>Mã hoạt động</th>
+             <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let hdc of DsHDC" >
+  
+              <td>{{hdc.maHoatdongchinh}}</td>
+              <td>{{hdc.mahoatdong}}</td>
+             
+              <td>
+                <button type="button" class="btn btn-light mr-1" (click)="xoahdc(hdc)" >
+                  Xóa
+              </button>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+ 

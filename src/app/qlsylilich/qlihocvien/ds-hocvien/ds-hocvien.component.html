@@ -1,0 +1,83 @@
+<!-- The Modal -->
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{tieuDe}}</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="dong()">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-them-suahocvien [hv]="hv" *ngIf="dangThemSua"></app-them-suahocvien>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="showTemplate" >
+  <div class="table-responsive">
+    <h2 style="text-align: center;">Danh sách học viên</h2>
+    <div class="search-container">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Tìm kiếm...">
+        <button type="submit" id="search-button">Tìm kiếm</button>
+        <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-toggle="modal" data-target="#myModal" (click)="themhv()">
+          Thêm học viên
+        </button>
+      </form>
+    </div>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th>Mã học viên</th>
+          <th>Tên phụ huynh</th>
+          <th>Mã nhập học</th>
+          <th>Tên lớp</th>
+          <th>Họ và tên</th>
+          <th>Địa chỉ</th>
+          <th>Giới tính</th>
+          <th>Lịch sử sức khỏe</th>
+          <th>Thông tin khác</th>
+          <th>Tình trạng sức khỏe hiện tại</th>
+          <th>Chi phí ban đầu</th>
+          <th>Hình ảnh học viên</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hv of DsHV">
+          <td>{{ hv.childResumeId }}</td>
+          <td>{{ getPhName(hv.parentResumeId) }}</td>
+          <td>{{ hv.afaId }}</td>
+          <td>{{getClasName(hv.classId)}}</td>
+          <td>{{ hv.name }}</td>
+          <td>{{ hv.diachi }}</td>
+          <td>
+            {{ hv.gender ? 'Nam' : 'Nữ' }}
+          </td>
+          <td>{{ hv.medicalHistory }}</td>
+          <td>{{ hv.informationDif }}</td>
+      
+          <td>{{ hv.currentHealthStatus }}</td>
+          <td>{{ hv.chiphibandau }}</td>
+          <td>
+            <img  style="width: 90px; height: 80px;" [src]="hv.imageUrl" alt="Hình ảnh">
+          </td>
+          <td>
+            <button type="button" class="btn btn-light mr-1" (click)="chitiethv(hv)" data-toggle="modal" data-target="#myModal">
+              Sửa
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-light mr-1" (click)="xoahocvien(hv)">
+              Xóa
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

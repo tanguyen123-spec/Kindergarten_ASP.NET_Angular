@@ -1,0 +1,29 @@
+<div class="chart">
+  <div  class="simple-bar-chart">
+    <div class="item" *ngFor="let dt of DsDT" [style.--clr]="getColor(dt.tongChiPhi)" [style.--val]="(dt.tongChiPhi / maxTongChiPhi) * 100 + '%'">
+      <div class="label">{{ dt.thangNamHoc }}</div>
+      <div class="value">{{ dt.tongChiPhi | currency:'VND' }}</div>
+    </div>
+  </div>
+</div>
+<div class="containertk">
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th>Tháng/Năm học</th>
+        <th>Chi phí tiêu chuẩn</th>
+        <th>Chi phí thực thu</th>
+  
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dt of DsDT">
+        <td>{{ dt.thangNamHoc }}</td>
+        <td>{{ totalChiPhi | currency:'VND' }}</td>
+        <td>{{ dt.tongChiPhi | currency:'VND' }}</td>
+      </tr>
+  
+    </tbody>
+  </table>
+</div>

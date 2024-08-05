@@ -1,0 +1,18 @@
+<form>
+    <div class="form-group">
+      <label for="mahoatdong">Mã hoạt động</label>
+      <input class="form-control" id="mahoatdong" [(ngModel)]="mahoatdong" name="mahoatdong" required>
+    </div>
+    <div class="form-group">
+      <label for="tenhoatdong">Tên hoạt động</label>
+      <input class="form-control" id="tenhoatdong" [(ngModel)]="tenhoatdong" name="tenhoatdong" required>
+    </div>
+    <div class="form-group">
+      <label for="chiphi">Chi Phí</label>
+      <input class="form-control" id="chiphi" [(ngModel)]="chiphi" name="chiphi" required>
+    </div>
+   
+  
+    <button *ngIf="isAddingHD" type="submit" (click)="addHoatdong()" class="btn btn-primary">Thêm hoạt động</button>
+    <button *ngIf="!isAddingHD" type="submit" (click)="suaHD()" class="btn btn-primary">Sửa hoạt động</button>
+  </form>

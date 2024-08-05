@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+<!-- The Detail Modal -->
+<div class="modal fade" *ngIf="isDetailModalVisible" id="myModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Thông tin chi phí của học viên</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h2>Chi phí phí hoạt động chính</h2>
+        <h4>Lựa chọn chi phí:</h4>
+        <label>
+          <input type="radio" name="chiPhiOption" (change)="onSelectChiPhiDauTien()">
+          Chi phí tháng đầu tiên
+        </label>
+        <label>
+          <input type="radio" name="chiPhiOption" (change)="onSelectChiPhiCacThangSau()">
+          Chi phí các tháng sau
+        </label>
+        <table class="table text-center">
+
+          <thead>
+            <tr>
+              <th>Mã chi phí chính</th>
+              <th>Mã hoạt động</th>
+              <th> Mã học viên </th>
+              <th>Năm tháng học</th>
+              <th>Phí đóng / Bửa</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let CPC of DsCPC">
+              <td>{{ CPC.machiphichinh }}</td>
+              <td>{{ CPC.mahoatdong }}</td>
+              <td>{{ CPC.childResumeId }}</td>
+              <td>{{ CPC.thang_namhoc }}</td>
+              <td>{{ calculateHocPhi(CPC.mahoatdong, CPC.thang_namhoc) }}</td>
+
+              <td></td>
+            </tr>
+          </tbody>
+
+        </table>
+        <h4>Chi phí ban đầu: {{ getChiphibandauByChildResumeId(selectedNameCPC.childResumeId) }}</h4>
+        <h4>Số buổi điểm danh tháng trước: {{ totalDiemDanh }}</h4>
+        <h4>Chi phí chính: {{ selectedOption === 'chiPhiDauTien' ? getChiphibandauByChildResumeId(selectedNameCPC.childResumeId) : totalChiPhiWithDiemDanh }} VND</h4>
+        <h2>Chi phí phí hoạt động đăng ký thêm</h2>
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th>Mã hoạt động đăng kí thêm</th>
+              <th>Mã hoạt động</th>
+              <th> Mã học viên </th>
+              <th>Năm tháng học</th>
+              <th>Chi phí</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let CPP of DsCPP">
+              <td>{{ CPP.machiphiphu }}</td>
+              <td>{{CPP.mahoatdong }}</td>
+              <td>{{ CPP.child_resume_id }}</td>
+              <td>{{ CPP.thang_namhoc }}</td>
+              <td>{{ getChiPhiByMaHoatDong(CPP.mahoatdong) }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>Chi phí ngoại: {{ calculateTotalChiPhiP() }} VND</h4>
+      </div>
+      <h4 style="padding-left: 300px;">Tổng chi phí: {{ calculateTotalChiPhiTong() }} VND</h4>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+
+        <button type="submit" class="btn btn-primary" (click)="addBienlai();">Tạo biên lai</button> <button type="button"
+          class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="table-responsive">
+    <h2 style="text-align: center;">Danh sách bảng thu chi tất cả học viên</h2>
+    <div class="search-container">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Tìm kiếm...">
+        <button type="submit" id="search-button">Tìm kiếm</button>
+      </form>
+    </div>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th>Mã học viên</th>
+          <th>Tên học viên</th>
+          <th>Chi phí học viên</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hv of DsHV">
+          <td>{{ hv.childResumeId }}</td>
+          <td>{{ hv.name }}</td>
+          <td>
+            <button type="button" class="btn btn-light mr-1" data-toggle="modal" data-target="#myModal"
+              (click)="chitietCPC_hv(hv);chitietCPP_hv(hv);">
+              Xem chi tiết
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

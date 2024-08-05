@@ -1,0 +1,10 @@
+@import "bootstrap/dist/css/bootstrap.css";
+body {
+    background-image: url('http://localhost:5160/Uploads/Hocvien/no1.jpg/image.png');
+  
+
+}
+table td,
+table th {
+  font-size: 14px; /* Kích thước chữ mới */
+}

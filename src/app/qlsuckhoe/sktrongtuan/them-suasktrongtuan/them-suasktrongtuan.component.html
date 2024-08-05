@@ -1,0 +1,37 @@
+<form enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="ttskId">ID Tình trạng sức khỏe</label>
+        <input class="form-control" id="ttskId" [(ngModel)]="ttskId" name="ttskId"  readonly required>
+    </div>
+    <div class="form-group">
+        <label for="childResumeId">ID Học viên</label>
+        <input class="form-control" id="childResumeId" [(ngModel)]="childResumeId" name="childResumeId" required>
+    </div>
+    <div class="form-group">
+        <label for="magiaovien">Mã giáo viên</label>
+        <input class="form-control" id="magiaovien" [(ngModel)]="magiaovien" name="magiaovien" required>
+    </div>
+    <div class="form-group">
+        <label for="ngaykiemtra">Ngày kiểm tra</label>
+        <input type="date" class="form-control" id="ngaykiemtra" [(ngModel)]="ngaykiemtra" name="ngaykiemtra" required>
+    </div>
+    <div class="form-group">
+        <label for="nhietdo">Nhiệt độ</label>
+        <input  class="form-control" id="nhietdo" [(ngModel)]="nhietdo" name="nhietdo" required>
+    </div>
+    <div class="form-group">
+        <label for="trangthaian">Trạng thái ăn</label>
+        <input class="form-control" id="trangthaian" [(ngModel)]="trangthaian" name="trangthaian" required>
+    </div>
+    <div class="form-group">
+        <label for="trangthaingu">Trạng thái ngủ</label>
+        <input class="form-control" id="trangthaingu" [(ngModel)]="trangthaingu" name="trangthaingu" required>
+    </div>
+    <div class="form-group">
+        <label for="thaidohochanh">Thái độ học hành</label>
+        <input class="form-control" id="thaidohochanh" [(ngModel)]="thaidohochanh" name="thaidohochanh" required>
+    </div>
+   
+    <button *ngIf="isAddingLH" type="submit" (click)="addSktt()" class="btn btn-primary">Thêm </button>
+    <button *ngIf="!isAddingLH" type="submit" (click)="suaSktt()" class="btn btn-primary">Sửa </button>
+</form>
